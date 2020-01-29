@@ -22,7 +22,7 @@ az group create `
 
 #create the blank template
 $templateFile = 'nrazuretemplate.json'
-$templateName = 'blanktemplate'
+$templateName = 'resourcetemplate'
 
 az group deployment create `
 --name $templateName `
