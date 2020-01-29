@@ -1,0 +1,33 @@
+#Login into Azure
+az login
+
+#List all the azure accounts
+az account list -o table
+
+# Set default subscription
+az account set --subscription "AzurePass"
+
+#Get all the resource group
+az group list
+az group list --query [].name
+
+# Variable
+$rgName = 'rg-armTemplates'
+$location = 'South India'
+
+#create resource group
+az group create `
+--name $rgName `
+--location $location
+
+#create the blank template
+$templateFile = 'nrazuretemplate.json'
+$templateName = 'blanktemplate'
+
+az group deployment create `
+--name $templateName `
+--resource-group $rgName `
+--template-file $templateFile 
+
+#delete a group
+az group delete --name $rgName --no-wait --yes
