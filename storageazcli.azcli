@@ -22,15 +22,19 @@ az group create `
 
 #create the blank template
 $templateFile = 'nrazuretemplate.json'
-$templateName = 'resourcetemplate'
-$storageName ='nrstorage123456'
+$templateName = 'variabletemplate'
+$storagePrefix ='nrstrg'
 
 az group deployment create `
 --name $templateName `
 --resource-group $rgName `
---template-file $templateFile 
+--template-file $templateFile `
+--parameter storagePrefix=$storagePrefix
+
 
 #delete a group
 az group delete --name $rgName --no-wait --yes
 
 git checkout -b 03Parameters
+git checkout -b 04TemplateFunctions
+git checkout -b 05Variables
