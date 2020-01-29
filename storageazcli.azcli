@@ -23,6 +23,7 @@ az group create `
 #create the blank template
 $templateFile = 'nrazuretemplate.json'
 $templateName = 'resourcetemplate'
+$storageName ='nrstorage123456'
 
 az group deployment create `
 --name $templateName `
@@ -31,3 +32,5 @@ az group deployment create `
 
 #delete a group
 az group delete --name $rgName --no-wait --yes
+
+git checkout -b 03Parameters
